@@ -1,10 +1,10 @@
 "use strict";
 // elementos HTML
-const valueSelect = document.querySelector("js_select");
-const playBtn = document.querySelector("js_btnPlay");
-const resultText = document.querySelector("js_text");
-const counterUser = document.querySelector("js_user");
-const counterPC = document.querySelector("js_computer");
+const valueSelect = document.querySelector(".js_select");
+const playBtn = document.querySelector(".js_btnPlay");
+const resultText = document.querySelector(".js_text");
+const counterUser = document.querySelector(".js_user");
+const counterPC = document.querySelector(".js_computer");
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
@@ -41,7 +41,7 @@ function computerPlay() {
   let computerResult;
   if (randomNum < 3) {
     computerResult = "piedra";
-  } else if (randomNum >= 3 && randomNum <= 6) {
+  } else if (randomNum>= 6) {
     computerResult = "papel";
   } else {
     computerResult = "tijera";
@@ -56,4 +56,4 @@ function handleClickBtn(event) {
 }
 
 // operaciones
-playBtn.addEventListener("click", handleClickBtn);
+playBtn.addEventListener('click', handleClickBtn);
