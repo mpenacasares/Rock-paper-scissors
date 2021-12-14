@@ -4,7 +4,10 @@ const valueSelect = document.querySelector(".js_select");
 const playBtn = document.querySelector(".js_btnPlay");
 const resultText = document.querySelector(".js_text");
 const counterUser = document.querySelector(".js_user");
-const counterPC = document.querySelector(".js_computer");
+const counterComputer = document.querySelector(".js_computer");
+
+let countUserResult = 0;
+let countComputerResult = 0;
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
@@ -34,6 +37,7 @@ function changeOptionsGame(resultVariable) {
       resultText.innerHTML = "¡Has ganado!";
     }
   }
+  return resultText;
 }
 
 function computerPlay() {
@@ -49,10 +53,21 @@ function computerPlay() {
   return computerResult;
 }
 
+function Counter(resultVariable) {
+    if (resultVariable === "¡Has ganado!") {
+        countUserResult += 1;
+        counterUser.innerHTML = `Jugador: ${countUserResult}`;
+    } else if (resultVariable === "¡Has perdido!") {
+        countComputerResult += 1;
+        counterComputer.innerHTML = `Computadora: ${countComputerResult}`;
+    }
+  }
+
 function handleClickBtn(event) {
   event.preventDefault();
   let resultVariable = computerPlay();
   changeOptionsGame(resultVariable);
+  Counter(resultVariable);
 }
 
 // operaciones
