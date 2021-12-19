@@ -1,51 +1,29 @@
 "use strict";
 // elementos HTML
-const valueSelect = document.querySelector(".js_select");
+const userSelect = document.querySelector(".js_select");
 const playBtn = document.querySelector(".js_btnPlay");
 const resultText = document.querySelector(".js_text");
 const counterUser = document.querySelector(".js_user");
 const counterComputer = document.querySelector(".js_computer");
 
+// variablesglobales
+
 let countUserResult = 0;
 let countComputerResult = 0;
 
+// funciones
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 
-function changeOptionsGame(resultVariable) {
-  const valueEl = valueSelect.value;
 
-  if (valueEl === resultVariable) {
-    resultText.innerHTML = "Empate";
-  } else if (valueEl === "piedra") {
-    if (resultVariable === "tijera") {
-      resultText.innerHTML = "¡Has ganado!";
-    } else if (resultVariable === "papel") {
-      resultText.innerHTML = "¡Has perdido!";
-    }
-  } else if (valueEl === "papel") {
-    if (resultVariable === "papel") {
-      resultText.innerHTML = "Empate";
-    } else if (resultVariable === "tijera") {
-      resultText.innerHTML = "¡Has perdido!";
-    }
-  } else if (valueEl === "tijera") {
-    if (resultVariable === "piedra") {
-      resultText.innerHTML = "¡Has ganado!";
-    } else if (resultVariable === "papel") {
-      resultText.innerHTML = "¡Has ganado!";
-    }
-  }
-  return resultText;
-}
-
+// jugada aleatoria y mov del pc
 function computerPlay() {
-  const randomNum = getRandomNumber(10);
-  let computerResult;
-  if (randomNum < 3) {
+  let randomNum = getRandomNumber(9);
+  let computerResult="";
+  if (randomNum <= 3) {
     computerResult = "piedra";
-  } else if (randomNum>= 6) {
+  } else if (randomNum>3 && randomNum<= 6) {
     computerResult = "papel";
   } else {
     computerResult = "tijera";
@@ -53,21 +31,42 @@ function computerPlay() {
   return computerResult;
 }
 
-function Counter(resultVariable) {
-    if (resultVariable === "¡Has ganado!") {
-        countUserResult += 1;
-        counterUser.innerHTML = `Jugador: ${countUserResult}`;
-    } else if (resultVariable === "¡Has perdido!") {
-        countComputerResult += 1;
-        counterComputer.innerHTML = `Computadora: ${countComputerResult}`;
+// jugada persona, comparación vs pc y contador
+function finalResult() {
+  let playerSelect = userSelect.value;
+  let computerResult = computerPlay();
+  console.log(`Jugada persona ${playerSelect}`);
+  console.log(`Jugada pc ${computerResult}`);
+  if (playerSelect === computerResult) {
+    resultText.innerHTML = "Empate";
+
+  } else if (playerSelect === "piedra") {
+    if (computerResult === "tijera") {
+      resultText.innerHTML = "¡Has ganado!";
+    } else if (computerResult === "papel") {
+      resultText.innerHTML = "¡Has perdido!";
+    }
+
+  } else if (playerSelect === "papel") {
+    if (computerResult === "piedra") {
+      resultText.innerHTML = "¡Has ganado!";
+    } else if (computerResult === "tijera") {
+      resultText.innerHTML = "¡Has perdido!";
+    }
+  } else if (playerSelect === "tijera") {
+    if (computerResult === "papel") {
+      resultText.innerHTML = "¡Has ganado!";
+    } else if (computerResult === "piedra") {
+      resultText.innerHTML = "¡Has perdido!";
     }
   }
+ 
+}
+
 
 function handleClickBtn(event) {
   event.preventDefault();
-  let resultVariable = computerPlay();
-  changeOptionsGame(resultVariable);
-  Counter(resultVariable);
+  finalResult()
 }
 
 // operaciones
