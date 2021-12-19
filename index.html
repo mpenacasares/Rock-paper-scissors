@@ -12,22 +12,22 @@
 <body>
 
     <main class="main">
-        <h1 class="main__tittle">Juego Piedra, Papel y Tijera</h1>
-        <h2 class="main__subtittle">Introduce aquí tu jugada:</h2>
-        <form class="main__form" action="">
-            <select class="main__form--input js_select" id="number" type="number" placeholder="Seleccione su jugada">
+        <h1 class="tittle">Juego Piedra, Papel y Tijera</h1>
+        <h2 class="subtittle">Introduce aquí tu jugada:</h2>
+        <form class="form" action="">
+            <select class="form--input js_select" id="number" type="number" placeholder="Seleccione su jugada">
                 <option value="" disabled selected>Seleccione su jugada</option>
                 <option value="piedra">Piedra</option>
                 <option value="papel">Papel</option>
                 <option value="tijera">Tijera</option>
             </select>
-            <input class="main__form--btnPlay js_btnPlay" type="submit" value="Jugar" />
+            <input class="btn js_btnPlay" type="submit" value="Jugar" />
         </form>
-        <p class="main__text js_text">¡Vamos a jugar!</p>
-        <p class="main__user">Jugador: <span class="js_user">0</span></p>
-        <p class="main__computer">Computadora: <span class="js_computer">0</span></p>
+        <p class="text js_text">¡Vamos a jugar!</p>
+        <p class="user">Jugador: <span class="js_user">0</span></p>
+        <p class="computer">Computadora: <span class="js_computer">0</span></p>
         <!-- bonus -->
-        <input class="main__form--btnReload hidden js_btnReload" type="submit" value="Reiniciar" />
+        <input class="btn hidden js_btnReload" type="submit" value="Reiniciar" />
     </main>
 
     <script type="text/javascript" src="./js/main.js"></script>
