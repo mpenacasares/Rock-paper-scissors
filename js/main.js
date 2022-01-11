@@ -7,7 +7,7 @@ const counterUser = document.querySelector(".js_user");
 const counterComputer = document.querySelector(".js_computer");
 
 // bonus
-const reloadBtn = document.querySelector('.js_btnReload');
+const reloadBtn = document.querySelector(".js_btnReload");
 
 // variables globales
 
@@ -67,13 +67,10 @@ function finalResult() {
       }
     }
   }
-  console.log(countComputerResult);
-  console.log(countUserResult);
 
   counterUser.innerHTML = countUserResult;
   counterComputer.innerHTML = countComputerResult;
   moves++;
-  console.log(moves);
 }
 
 // finalizar juego
@@ -89,7 +86,7 @@ function finishGame() {
     // bonus
     reloadBtn.classList.remove("hidden");
     playBtn.classList.add("hidden");
-    userSelect.value="";
+    userSelect.value = "";
   }
 }
 
@@ -100,7 +97,7 @@ function handleClickBtn(event) {
 }
 
 // bonus
-function handleClickReloadBtn(event){
+function handleClickReloadBtn(event) {
   event.preventDefault();
   countUserResult = 0;
   countComputerResult = 0;
@@ -110,7 +107,6 @@ function handleClickReloadBtn(event){
   resultText.innerHTML = "¡Vamos a jugar!";
   reloadBtn.classList.add("hidden");
   playBtn.classList.remove("hidden");
-
 }
 
 // operaciones
